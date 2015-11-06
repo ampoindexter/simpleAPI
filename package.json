@@ -1,0 +1,24 @@
+{
+  "name": "simpleapi",
+  "version": "1.0.0",
+  "description": "my first server",
+  "main": "server.js",
+  "dependencies": {
+    "md5": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ampoindexter/simpleAPI.git"
+  },
+  "author": "Alicia Poindexter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ampoindexter/simpleAPI/issues"
+  },
+  "homepage": "https://github.com/ampoindexter/simpleAPI#readme"
+}
