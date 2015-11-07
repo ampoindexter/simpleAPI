@@ -42,6 +42,7 @@ var server = http.createServer(function(req, res){
       var counter = JSON.stringify(superCounter(string));
       res.write(counter + '\n');
       res.end();
+      break;
     default:
       res.write("You are out of bounds!!!");
       res.end();
