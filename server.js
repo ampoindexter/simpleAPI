@@ -11,7 +11,11 @@ var server = http.createServer(function(req, res){
   var params = req.url.split('/');
   var route = params[1];
 
-  switch(route){
+  switch(route) {
+    case '':
+      res.write('<h1>Hello</h1>' + '\n');
+      res.end();
+      break;
     case 'gravatar':
       var array = params.slice(2);
       var hash = md5(array[0]);
@@ -22,32 +26,46 @@ var server = http.createServer(function(req, res){
       switch(params[2]){
         case 'square':
           var num = params[3];
-          res.write('The square of ' + num + ' is ' + math.square(num).toString() + '\n');
+          res.write('The square of ' + num + ' is: ' + math.square(num).toString() + '\n');
           res.end();
           break;
-        case 'sum':
+        case 'add':
           var nums = params.slice(3);
-          res.write('The sum is: ' + math.sum(nums).toString() + '\n');
+          res.write('The sum is: ' + math.add(nums).toString() + '\n');
+          res.end();
+          break;
+        case 'double':
+          var num = params[3];
+          res.write(num + ' doubled is: ' + math.double(num).toString() + '\n');
+          res.end();
+          break;
+        case 'cube':
+          var num = params[3];
+          res.write('The cube of ' + num + ' is: ' + math.cube(num).toString() + '\n');
+          res.end();
+          break;
+        case 'multiply':
+          var nums = params.slice(3);
+          res.write('The product is: ' + math.multiply(nums).toString() + '\n');
           res.end();
           break;
         }
+        break;
     case 'sentence':
       var string = decodeURI(params.slice(2));
-      var superCounter = function(string){
+      var superCounter = function(string) {
         var words = string.split(" ").length;
         var spaces = words - 1;
         var letters = string.length - spaces;
         return {letters: letters, spaces: spaces, words: words};
       }
-      var counter = JSON.stringify(superCounter(string));
-      res.write(counter + '\n');
+      res.write(JSON.stringify(superCounter(string)) + '\n');
       res.end();
       break;
     default:
-      res.write("You are out of bounds!!!");
+      res.write("You are out of bounds!!!\n");
       res.end();
   }
-
 });
 
 server.listen(port);
