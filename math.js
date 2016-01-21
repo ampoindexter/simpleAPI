@@ -21,10 +21,3 @@ module.exports = {
     }, 1);
   }
 }
-
-// exports.square = function(n) {
-//   return n * n;
-// }
-// exports.sum = nums => nums.reduce((sum, n) => sum + Number(n), 0);
-// exports.double = n => n * 2;
-// exports.cube = n => n * n * n;
